@@ -1,0 +1,59 @@
+\documentclass{ctexart}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{作业一: L'Hôpital's rule的叙述与证明}
+
+
+\author{赖泽宇 \\ 统计学3190102225}
+
+\begin{document}
+
+\maketitle
+
+
+洛必达法则是一个用于简化不确定形式极限的工具，它可以将不确定形式的求极限问题
+简化为另一种易求的形式。
+\section{问题描述}
+如果满足以下四个条件
+\begin{itemize}
+    \item 
+    \begin{equation}\label{eqa::1}
+        \lim\limits_{x\to c}f(x)=\lim\limits_{x\to c}g(x) = 0 
+    \end{equation}
+        \\ or \\
+    \begin{equation}\label{eqa::2} 
+        \lim\limits_{x\to c}f(x)=\lim\limits_{x\to c}g(x) = \pm \infty 
+    \end{equation}
+    \item $f(x)$ 和 $g(x)$ 在一个包含该点$c$的开区间$\mathcal{I}$上可微
+    \item $\forall x \neq c, \ x \in \mathcal{I}, \ g^{'}(x) \neq 0$
+    \item $\lim\limits_{x\to c}\frac{f^{'}(x)}{g^{'}(x)}$ 存在
+\end{itemize}
+则有 $\lim\limits_{x \to c}\frac{f(x)}{g(x)} = \lim\limits_{x\to c}\frac{f^{'}(x)}{g^{'}(x)}$
+
+\section{证明}
+下仅给出情况(\ref{eqa::1})的证明。\\
+设两函数$f(x)$及$g(x)$在$c$点附近连续可导，$f(x)$及$g(x)$都在$c$点连续，
+且值皆为$0$，即:
+$$
+f(c) = g(c) = 0; \ \lim\limits_{x\to c}f(x) = 0; \ \lim\limits_{x\to c}g(x) = 0
+$$
+另一方面，两函数的导数比值在$c$点存在，记为:
+\begin{equation}\label{result::1}
+\lim\limits_{x\to c}\frac{f^{'}(x)}{g^{'}(x)} = L
+\end{equation}
+由极限的定义，对$\forall \epsilon > 0, \exists \eta > 0 $,
+s.t.$\forall x\ neq c, \ c - \eta \leq x \leq c + \eta$:
+$$
+L - \epsilon \leq \frac{f^{'}(x)}{g^{'}(x)} \leq L + \epsilon 
+$$
+根据柯西中值定理，$\forall x\neq c, c - \eta \leq x c + \eta$, $\exists \xi $介于$a$和$x$,s.t.
+\begin{equation}\label{eqa::3}
+    \frac{f(x)}{g(x)} = \frac{f(x) - f(c)}{g(x) - g(a)} = \frac{f^{'}(\xi)}{g^{'}(\xi)}
+\end{equation}
+于是, $L-\epsilon \leq \frac{f(x)}{g(x)} \leq L + \epsilon$\\
+因此, $\lim\limits_{x\to c}\frac{f(x)}{g(x)}$与(\ref{result::1})相等，命题得证。
+
+\end{document}
+
